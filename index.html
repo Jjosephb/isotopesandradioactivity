@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.6 Isotopes &amp; Radioactive Decay — Interactive Class Presentation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Presenter Toolbar -->
+  <header class="topbar" role="banner">
+    <div class="topbar-left">
+      <span class="unit-badge">1.6</span>
+      <span class="deck-title">Isotopes &amp; Radioactive Decay</span>
+    </div>
+
+    <div class="topbar-center">
+      <div class="progress-track" aria-label="Presentation progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="slide-counter" id="slideCounter">1 / 16</span>
+    </div>
+
+    <div class="topbar-right">
+      <button class="tool-btn" id="btnPeriodicTable" title="Mini Periodic Table Reference (P)">
+        <span class="icon">⚛</span> <span class="btn-label">Periodic Table</span>
+      </button>
+      <button class="tool-btn" id="btnOverview" title="Slide Overview Grid (G)">
+        <span class="icon">⊞</span> <span class="btn-label">Slides</span>
+      </button>
+      <button class="tool-btn" id="btnTheme" title="Toggle Dark / Classroom Light Mode (L)">
+        <span class="icon" id="themeIcon">☀</span> <span class="btn-label">Light</span>
+      </button>
+      <button class="tool-btn" id="btnFullscreen" title="Toggle Fullscreen (F)">
+        <span class="icon">⛶</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Slide Stage -->
+  <main class="deck-stage" id="deckStage">
+
+    <!-- ==================== SLIDE 1: TITLE ==================== -->
+    <section class="slide active" data-title="Title: 1.6 Isotopes & Radioactive Decay">
+      <div class="title-layout">
+        <div class="title-content">
+          <div class="eyebrow">Chemistry &amp; Nuclear Science • Topic 1.6</div>
+          <h1 class="hero-title">Isotopes &amp; <span class="gradient-text">Radioactive Decay</span></h1>
+          <p class="hero-subtitle">
+            Inside the nucleus: why atoms of the same element can have different masses — and what happens when a nucleus becomes unstable.
+          </p>
+          <div class="title-pills">
+            <span class="pill pill-p">Protons (Z)</span>
+            <span class="pill pill-n">Neutrons (N)</span>
+            <span class="pill pill-alpha">Alpha (α)</span>
+            <span class="pill pill-beta">Beta (β)</span>
+            <span class="pill pill-gamma">Gamma (γ)</span>
+          </div>
+          <div class="presenter-hints">
+            <span><kbd>←</kbd> <kbd>→</kbd> Navigate</span>
+            <span><kbd>F</kbd> Fullscreen</span>
+            <span><kbd>G</kbd> Overview</span>
+            <span><kbd>P</kbd> Periodic Table</span>
+            <span><kbd>L</kbd> Light/Dark</span>
+          </div>
+        </div>
+        <div class="title-visual">
+          <canvas id="heroAtomCanvas" width="440" height="440" aria-label="Animated Carbon-14 atom"></canvas>
+          <div class="hero-caption">Carbon-14 — An Unstable Radioisotope</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 2: LEARNING INTENTIONS ==================== -->
+    <section class="slide" data-title="Learning Intentions & Roadmap">
+      <div class="slide-header">
+        <span class="section-tag">Lesson Overview</span>
+        <h2>Learning Intentions</h2>
+      </div>
+      <div class="intentions-grid">
+        <div class="intent-card">
+          <div class="intent-num">01</div>
+          <div>
+            <h3>Describe Isotopes</h3>
+            <p>Explain what an isotope is and why isotopes of the same element behave the same chemically.</p>
+          </div>
+        </div>
+        <div class="intent-card">
+          <div class="intent-num">02</div>
+          <div>
+            <h3>Calculate Subatomic Particles</h3>
+            <p>Find protons, neutrons, and electrons in isotopes — and spot when a particle is a neutral atom vs. an <strong>ion</strong>.</p>
+          </div>
+        </div>
+        <div class="intent-card">
+          <div class="intent-num">03</div>
+          <div>
+            <h3>Write Shorthand Notation</h3>
+            <p>Represent any isotope accurately using <span class="nuc-inline"><span class="nuc-stack"><span>A</span><span>Z</span></span><span class="nuc-sym">X</span></span> notation.</p>
+          </div>
+        </div>
+        <div class="intent-card">
+          <div class="intent-num">04</div>
+          <div>
+            <h3>Explain Radioactive Decay</h3>
+            <p>Describe why unstable nuclei (radioisotopes) break down and emit radiation.</p>
+          </div>
+        </div>
+        <div class="intent-card">
+          <div class="intent-num">05</div>
+          <div>
+            <h3>Identify &amp; Balance Decay</h3>
+            <p>Distinguish <strong>Alpha (α)</strong>, <strong>Beta (β)</strong>, and <strong>Gamma (γ)</strong> decay and balance nuclear equations.</p>
+          </div>
+        </div>
+        <div class="intent-card intent-worksheet">
+          <div class="intent-num">★</div>
+          <div>
+            <h3>Today's Worksheets</h3>
+            <p><strong>Worksheet 1:</strong> Isotopes (Tables, Notation &amp; Ions)<br /><strong>Worksheet 2:</strong> Radioactive Decay (Identification &amp; Equations)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 3: WHAT IS AN ISOTOPE? ==================== -->
+    <section class="slide" data-title="What is an Isotope?">
+      <div class="slide-header">
+        <span class="section-tag">Part 1 • Isotopes</span>
+        <h2>What is an Isotope?</h2>
+      </div>
+      <div class="two-col-asymmetric">
+        <div class="concept-stack">
+          <div class="callout-card highlight-border">
+            <h3>Definition</h3>
+            <p class="big-def">
+              <strong>Isotopes</strong> are different versions of the <strong>same element</strong>. They have the <span class="text-p">same number of protons</span>, but a <span class="text-n">different number of neutrons</span>.
+            </p>
+          </div>
+          <ul class="key-points">
+            <li><span class="bullet-dot dot-p"></span><strong>Same Atomic Number (Z)</strong> → same element, same chemical behaviour.</li>
+            <li><span class="bullet-dot dot-n"></span><strong>Different Mass Number (A)</strong> → heavier or lighter nucleus.</li>
+            <li><span class="bullet-dot dot-gamma"></span><strong>Naming rule:</strong> <code>Element name – Mass number</code> (e.g. Carbon-12, Carbon-14).</li>
+            <li><span class="bullet-dot dot-alpha"></span>Some isotopes are <strong>stable</strong>; others are <strong>radioactive</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="carbon-trio">
+          <div class="isotope-card">
+            <div class="iso-badge stable">Stable (98.9%)</div>
+            <div class="mini-nucleus" data-p="6" data-n="6"></div>
+            <h4>Carbon-12</h4>
+            <div class="nuc-display">
+              <span class="nuc-stack"><span class="text-mass">12</span><span class="text-p">6</span></span>
+              <span class="nuc-sym">C</span>
+            </div>
+            <div class="iso-stats">
+              <span class="stat-p">6 p⁺</span>
+              <span class="stat-n">6 n⁰</span>
+              <span class="stat-e">6 e⁻</span>
+            </div>
+          </div>
+
+          <div class="isotope-card">
+            <div class="iso-badge stable">Stable (1.1%)</div>
+            <div class="mini-nucleus" data-p="6" data-n="7"></div>
+            <h4>Carbon-13</h4>
+            <div class="nuc-display">
+              <span class="nuc-stack"><span class="text-mass">13</span><span class="text-p">6</span></span>
+              <span class="nuc-sym">C</span>
+            </div>
+            <div class="iso-stats">
+              <span class="stat-p">6 p⁺</span>
+              <span class="stat-n">7 n⁰</span>
+              <span class="stat-e">6 e⁻</span>
+            </div>
+          </div>
+
+          <div class="isotope-card unstable-card">
+            <div class="iso-badge unstable">Radioactive!</div>
+            <div class="mini-nucleus unstable-jiggle" data-p="6" data-n="8"></div>
+            <h4>Carbon-14</h4>
+            <div class="nuc-display">
+              <span class="nuc-stack"><span class="text-mass">14</span><span class="text-p">6</span></span>
+              <span class="nuc-sym">C</span>
+            </div>
+            <div class="iso-stats">
+              <span class="stat-p">6 p⁺</span>
+              <span class="stat-n">8 n⁰</span>
+              <span class="stat-e">6 e⁻</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 4: INTERACTIVE SIM 1 — ISOTOPE & ION BUILDER ==================== -->
+    <section class="slide" data-title="Simulation 1: Build an Isotope & Ion">
+      <div class="slide-header compact">
+        <span class="section-tag sim-tag">Interactive Simulation 1</span>
+        <h2>Build an Atom, Isotope, or Ion</h2>
+      </div>
+      <div class="sim-builder-grid">
+        <!-- Live Atom Canvas -->
+        <div class="sim-stage-card">
+          <canvas id="builderCanvas" width="440" height="390"></canvas>
+          <div class="sim-legend">
+            <span><i class="swatch swatch-p"></i> Proton (+1)</span>
+            <span><i class="swatch swatch-n"></i> Neutron (0)</span>
+            <span><i class="swatch swatch-e"></i> Electron (−1)</span>
+          </div>
+        </div>
+
+        <!-- Controls & Live Readouts -->
+        <div class="sim-panel">
+          <div class="readout-banner">
+            <div class="nuc-display large" id="builderNotation">
+              <span class="nuc-stack"><span class="text-mass" id="bMass">12</span><span class="text-p" id="bAtomic">6</span></span>
+              <span class="nuc-sym" id="bSym">C</span>
+              <span class="nuc-charge" id="bChargeSup"></span>
+            </div>
+            <div class="readout-meta">
+              <div class="readout-name" id="bName">Carbon-12</div>
+              <div class="badge-row">
+                <span class="status-pill stable" id="bStability">Stable Nucleus</span>
+                <span class="status-pill neutral" id="bChargeBadge">Neutral Atom (0)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="counter-controls">
+            <div class="counter-row row-p">
+              <div class="counter-info">
+                <strong>Protons (p⁺)</strong>
+                <small>Sets the element (Atomic Number Z)</small>
+              </div>
+              <div class="stepper">
+                <button class="step-btn" data-part="p" data-delta="-1" aria-label="Remove proton">−</button>
+                <span class="step-val" id="valP">6</span>
+                <button class="step-btn" data-part="p" data-delta="1" aria-label="Add proton">+</button>
+              </div>
+            </div>
+
+            <div class="counter-row row-n">
+              <div class="counter-info">
+                <strong>Neutrons (n⁰)</strong>
+                <small>Changes isotope &amp; Mass Number (A = p + n)</small>
+              </div>
+              <div class="stepper">
+                <button class="step-btn" data-part="n" data-delta="-1" aria-label="Remove neutron">−</button>
+                <span class="step-val" id="valN">6</span>
+                <button class="step-btn" data-part="n" data-delta="1" aria-label="Add neutron">+</button>
+              </div>
+            </div>
+
+            <div class="counter-row row-e">
+              <div class="counter-info">
+                <strong>Electrons (e⁻)</strong>
+                <small>If p⁺ ≠ e⁻, the particle becomes an <strong>Ion</strong></small>
+              </div>
+              <div class="stepper">
+                <button class="step-btn" data-part="e" data-delta="-1" aria-label="Remove electron">−</button>
+                <span class="step-val" id="valE">6</span>
+                <button class="step-btn" data-part="e" data-delta="1" aria-label="Add electron">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="preset-box">
+            <div class="preset-label">Classroom Presets (Try Worksheet 1 Q3!):</div>
+            <div class="preset-btns">
+              <button class="preset-btn" data-preset="c12">Carbon-12</button>
+              <button class="preset-btn" data-preset="c14">Carbon-14 (Radioactive)</button>
+              <button class="preset-btn ws-preset" data-preset="wsA">WS1 Q3-A (Be-7)</button>
+              <button class="preset-btn ws-preset" data-preset="wsB">WS1 Q3-B (Be-8)</button>
+              <button class="preset-btn ws-preset" data-preset="wsC">WS1 Q3-C (Ion!)</button>
+              <button class="preset-btn ws-preset" data-preset="wsD">WS1 Q3-D (Ion!)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 5: SHORTHAND NOTATION & CALCULATING PARTICLES ==================== -->
+    <section class="slide" data-title="Shorthand Notation & Counting Particles">
+      <div class="slide-header">
+        <span class="section-tag">Part 1 • Core Skills</span>
+        <h2>Shorthand Notation &amp; Subatomic Particles</h2>
+      </div>
+      <div class="two-col-even">
+        <!-- Annotated Shorthand Diagram -->
+        <div class="card notation-anatomy">
+          <h3>Reading Shorthand Notation</h3>
+          <div class="annotated-symbol">
+            <div class="anno-left">
+              <div class="anno-callout top-callout">
+                <span class="text-mass"><strong>Mass Number (A)</strong></span>
+                <small>Protons + Neutrons (always the bigger number)</small>
+              </div>
+              <div class="anno-callout bottom-callout">
+                <span class="text-p"><strong>Atomic Number (Z)</strong></span>
+                <small>Number of Protons (finds the element on the Periodic Table)</small>
+              </div>
+            </div>
+            <div class="giant-nuc">
+              <span class="nuc-stack"><span class="text-mass">14</span><span class="text-p">6</span></span>
+              <span class="nuc-sym">C</span>
+            </div>
+            <div class="anno-right">
+              <div class="anno-callout right-callout">
+                <strong>Chemical Symbol (X)</strong>
+                <small>1 or 2 letters from the Periodic Table</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="formula-strip">
+            <div class="formula-box">
+              <span class="f-label">Protons</span>
+              <span class="f-eq text-p">= Atomic Number (Z)</span>
+            </div>
+            <div class="formula-box">
+              <span class="f-label">Neutrons</span>
+              <span class="f-eq text-n">= Mass (A) − Protons (Z)</span>
+            </div>
+            <div class="formula-box">
+              <span class="f-label">Electrons</span>
+              <span class="f-eq text-e">= Protons (neutral atom)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Worked Comparison Table + Ion Warning -->
+        <div class="card">
+          <h3>Example: Carbon-12 vs. Carbon-14</h3>
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Subatomic Particle</th>
+                <th>Carbon-12 (<span class="nuc-inline"><span class="nuc-stack"><span>12</span><span>6</span></span>C</span>)</th>
+                <th>Carbon-14 (<span class="nuc-inline"><span class="nuc-stack"><span>14</span><span>6</span></span>C</span>)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong class="text-p">Number of Protons</strong></td>
+                <td>6</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td><strong class="text-n">Number of Neutrons</strong></td>
+                <td>12 − 6 = <strong>6</strong></td>
+                <td>14 − 6 = <strong>8</strong></td>
+              </tr>
+              <tr>
+                <td><strong class="text-e">Number of Electrons</strong></td>
+                <td>6</td>
+                <td>6</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="tip-banner warning-tip">
+            <div class="tip-icon">⚡</div>
+            <div>
+              <strong>Watch out for Ions! (Worksheet 1, Q3c)</strong>
+              <p>A <strong>neutral atom</strong> has equal protons and electrons (<span class="text-p">p⁺</span> = <span class="text-e">e⁻</span>). If <span class="text-p">p⁺</span> ≠ <span class="text-e">e⁻</span>, the particle has an overall charge and is called an <strong>ion</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 6: WORKSHEET 1 WALKTHROUGH ==================== -->
+    <section class="slide" data-title="Worksheet 1 Guide: Isotopes">
+      <div class="slide-header compact">
+        <span class="section-tag ws-tag">Worksheet 1 • How to Approach</span>
+        <h2>Isotopes Worksheet — Worked Examples</h2>
+      </div>
+      <div class="ws-three-col">
+        <!-- Q1 Strategy -->
+        <div class="ws-card">
+          <div class="ws-card-head">
+            <span class="ws-qnum">Q1</span>
+            <h3>Subatomic Particle Tables</h3>
+          </div>
+          <p class="strategy-text"><strong>Strategy:</strong> Both columns in each box are isotopes of the <em>same element</em> (same protons!). Use <code>p + n = Mass</code> and <code>n = Mass − p</code>.</p>
+
+          <div class="worked-box">
+            <div class="worked-title">Example A: Given Name (Chromium-58 / 63)</div>
+            <p class="hint-line">Look up Chromium (Cr) on Periodic Table → <strong>Z = 24</strong></p>
+            <button class="reveal-btn" data-reveal="ws1q1a">Reveal Steps</button>
+            <div class="reveal-content" id="ws1q1a">
+              <ul>
+                <li><strong>Cr-58:</strong> p = 24, n = 58 − 24 = <strong>34</strong>, e = 24</li>
+                <li><strong>Cr-63:</strong> p = 24, n = 63 − 24 = <strong>39</strong>, e = 24</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="worked-box">
+            <div class="worked-title">Example B: Reverse Lookup (p = 25, n = 27 &amp; 25)</div>
+            <p class="hint-line">Which element has Z = 25? Add <code>p + n</code> for the name!</p>
+            <button class="reveal-btn" data-reveal="ws1q1b">Reveal Steps</button>
+            <div class="reveal-content" id="ws1q1b">
+              <ul>
+                <li>Z = 25 → <strong>Manganese (Mn)</strong></li>
+                <li>Col 1: 25 + 27 = 52 → <strong>Manganese-52</strong> (e = 25)</li>
+                <li>Col 2: 25 + 25 = 50 → <strong>Manganese-50</strong> (p = 25, e = 25)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 Strategy -->
+        <div class="ws-card">
+          <div class="ws-card-head">
+            <span class="ws-qnum">Q2</span>
+            <h3>Shorthand Notation Table</h3>
+          </div>
+          <p class="strategy-text"><strong>Strategy:</strong> The number after the dash is already the <strong>Mass Number (top)</strong>! Look up the element's <strong>Atomic Number (bottom)</strong> and symbol.</p>
+
+          <div class="worked-box">
+            <div class="worked-title">Worked Example: Potassium-40</div>
+            <ol class="mini-steps">
+              <li>Mass Number (top) = <strong>40</strong></li>
+              <li>Periodic Table: Potassium = <strong>K</strong>, Atomic Number = <strong>19</strong></li>
+              <li>Stack big number on top of small number!</li>
+            </ol>
+            <button class="reveal-btn" data-reveal="ws1q2">Reveal Notation</button>
+            <div class="reveal-content center-reveal" id="ws1q2">
+              <div class="nuc-display med">
+                <span class="nuc-stack"><span class="text-mass">40</span><span class="text-p">19</span></span>
+                <span class="nuc-sym">K</span>
+              </div>
+              <small class="muted-note">Watch out: Potassium is <strong>K</strong> and Sodium is <strong>Na</strong>!</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 Strategy -->
+        <div class="ws-card">
+          <div class="ws-card-head">
+            <span class="ws-qnum">Q3</span>
+            <h3>Particle Diagrams (A, B, C, D)</h3>
+          </div>
+          <p class="strategy-text"><strong>Strategy:</strong> Count the dots in each yellow key box (Protons, Neutrons, Electrons) before answering.</p>
+          <div class="mini-key-grid">
+            <div><strong>A:</strong> 4p, 3n, 4e</div>
+            <div><strong>B:</strong> 4p, 4n, 4e</div>
+            <div><strong>C:</strong> 5p, 5n, 2e</div>
+            <div><strong>D:</strong> 3p, 4n, 2e</div>
+          </div>
+          <div class="worked-box">
+            <div class="worked-title">Approach &amp; Model Answers</div>
+            <button class="reveal-btn" data-reveal="ws1q3">Reveal Model Answers</button>
+            <div class="reveal-content" id="ws1q3">
+              <ul>
+                <li><strong>3a)</strong> Atomic no. of A = protons = <strong>4</strong></li>
+                <li><strong>3b)</strong> Mass no. of C = p + n = 5 + 5 = <strong>10</strong></li>
+                <li><strong>3c)</strong> <strong>C and D are ions</strong> because they have <em>unequal protons and electrons</em> (C has 5p vs 2e; D has 3p vs 2e), giving them a net charge.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 7: STABLE VS UNSTABLE & RADIOACTIVE DECAY ==================== -->
+    <section class="slide" data-title="Stable vs Unstable Isotopes">
+      <div class="slide-header">
+        <span class="section-tag">Part 2 • Radioactive Decay</span>
+        <h2>Stable vs. Unstable Isotopes</h2>
+      </div>
+      <div class="two-col-even">
+        <div class="card">
+          <h3>Why Do Some Nuclei Decay?</h3>
+          <p class="lead-p">Inside the nucleus, neutrons act like nuclear glue keeping positively charged protons from pushing apart.</p>
+          <ul class="key-points">
+            <li><span class="bullet-dot dot-stable"></span><strong>Stable isotopes</strong> have a balanced proton-to-neutron ratio and do not change over time.</li>
+            <li><span class="bullet-dot dot-alpha"></span><strong>Unstable isotopes</strong> (often heavier ones with too many neutrons) break down over time.</li>
+            <li><span class="bullet-dot dot-gamma"></span>An unstable, radioactive isotope is called a <strong>radioisotope</strong>.</li>
+          </ul>
+          <div class="callout-card small-callout">
+            <strong>Radioactive Decay:</strong> When an unstable nucleus emits radiation and breaks down to form a more stable nucleus (usually a different element).
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>The Three Types of Radiation</h3>
+          <div class="rad-trio-list">
+            <div class="rad-item rad-alpha">
+              <div class="rad-symbol">α</div>
+              <div>
+                <h4>Alpha Radiation</h4>
+                <p>Heavy particle made of <strong>2 protons + 2 neutrons</strong> (helium nucleus, <span class="nuc-inline"><span class="nuc-stack"><span>4</span><span>2</span></span>He</span>).</p>
+              </div>
+            </div>
+            <div class="rad-item rad-beta">
+              <div class="rad-symbol">β</div>
+              <div>
+                <h4>Beta Radiation</h4>
+                <p>Fast-moving <strong>electron</strong> (<span class="nuc-inline"><span class="nuc-stack"><span>0</span><span>−1</span></span>e</span>) fired when a neutron turns into a proton.</p>
+              </div>
+            </div>
+            <div class="rad-item rad-gamma">
+              <div class="rad-symbol">γ</div>
+              <div>
+                <h4>Gamma Radiation</h4>
+                <p>High-energy <strong>electromagnetic wave</strong> (<span class="text-gamma">γ</span>) — no mass, no particle emitted.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 8: ALPHA DECAY + SIMULATION ==================== -->
+    <section class="slide" data-title="Alpha Decay Simulation">
+      <div class="slide-header compact">
+        <span class="section-tag tag-alpha">Type 1 • Alpha (α) Decay</span>
+        <h2>Alpha Decay: Ejecting a Helium Nucleus</h2>
+      </div>
+      <div class="decay-slide-grid">
+        <div class="decay-info">
+          <div class="rule-cards">
+            <div class="rule-pill alpha-pill">
+              <span class="rule-k">Emitted</span>
+              <span class="rule-v">2 Protons + 2 Neutrons (<span class="nuc-inline"><span class="nuc-stack"><span>4</span><span>2</span></span>He</span>)</span>
+            </div>
+            <div class="rule-pill alpha-pill">
+              <span class="rule-k">Mass Number (A)</span>
+              <span class="rule-v">Decreases by 4 (−4)</span>
+            </div>
+            <div class="rule-pill alpha-pill">
+              <span class="rule-k">Atomic Number (Z)</span>
+              <span class="rule-v">Decreases by 2 (−2) → <strong>New Element!</strong></span>
+            </div>
+          </div>
+
+          <div class="equation-box" id="alphaEqBox">
+            <div class="eq-label">Nuclear Equation</div>
+            <div class="eq-main" id="alphaEqDisplay">
+              <span class="nuc-display med"><span class="nuc-stack"><span class="text-mass">238</span><span class="text-p">92</span></span><span class="nuc-sym">U</span></span>
+              <span class="eq-arrow">→</span>
+              <span class="nuc-display med"><span class="nuc-stack"><span class="text-mass">234</span><span class="text-p">90</span></span><span class="nuc-sym">Th</span></span>
+              <span class="eq-plus">+</span>
+              <span class="nuc-display med text-alpha"><span class="nuc-stack"><span>4</span><span>2</span></span><span class="nuc-sym">He</span></span>
+            </div>
+            <div class="eq-check">
+              <span>Top: <strong>238 = 234 + 4</strong> ✓</span>
+              <span>Bottom: <strong>92 = 90 + 2</strong> ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="decay-sim-card">
+          <canvas id="alphaCanvas" width="520" height="310"></canvas>
+          <div class="sim-controls-bar">
+            <select id="alphaSelect" class="sim-select" aria-label="Choose alpha decay example">
+              <option value="u238">Uranium-238 → Thorium-234 (Slides)</option>
+              <option value="am241">Americium-241 → Neptunium-237 (WS2 Q3a &amp; Smoke Alarms)</option>
+              <option value="ra226">Radium-226 → Radon-222 (WS2 Q2e)</option>
+            </select>
+            <button class="action-btn btn-alpha" id="btnRunAlpha">▶ Trigger Alpha Decay</button>
+            <button class="ghost-btn" id="btnResetAlpha">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 9: BETA DECAY + SIMULATION ==================== -->
+    <section class="slide" data-title="Beta Decay Simulation">
+      <div class="slide-header compact">
+        <span class="section-tag tag-beta">Type 2 • Beta (β) Decay</span>
+        <h2>Beta Decay: A Neutron Becomes a Proton</h2>
+      </div>
+      <div class="decay-slide-grid">
+        <div class="decay-info">
+          <div class="rule-cards">
+            <div class="rule-pill beta-pill">
+              <span class="rule-k">What happens?</span>
+              <span class="rule-v">1 Neutron → 1 Proton + 1 Fast Electron (<span class="nuc-inline"><span class="nuc-stack"><span>0</span><span>−1</span></span>e</span>)</span>
+            </div>
+            <div class="rule-pill beta-pill">
+              <span class="rule-k">Mass Number (A)</span>
+              <span class="rule-v">Stays <strong>unchanged</strong> (0)</span>
+            </div>
+            <div class="rule-pill beta-pill">
+              <span class="rule-k">Atomic Number (Z)</span>
+              <span class="rule-v">Increases by 1 (+1) → <strong>New Element!</strong></span>
+            </div>
+          </div>
+
+          <div class="equation-box">
+            <div class="eq-label">Nuclear Equation</div>
+            <div class="eq-main" id="betaEqDisplay">
+              <span class="nuc-display med"><span class="nuc-stack"><span class="text-mass">42</span><span class="text-p">19</span></span><span class="nuc-sym">K</span></span>
+              <span class="eq-arrow">→</span>
+              <span class="nuc-display med"><span class="nuc-stack"><span class="text-mass">42</span><span class="text-p">20</span></span><span class="nuc-sym">Ca</span></span>
+              <span class="eq-plus">+</span>
+              <span class="nuc-display med text-beta"><span class="nuc-stack"><span>0</span><span>−1</span></span><span class="nuc-sym">e</span></span>
+            </div>
+            <div class="eq-check" id="betaEqCheck">
+              <span>Top: <strong>42 = 42 + 0</strong> ✓</span>
+              <span>Bottom: <strong>19 = 20 + (−1)</strong> ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="decay-sim-card">
+          <canvas id="betaCanvas" width="520" height="310"></canvas>
+          <div class="sim-controls-bar">
+            <select id="betaSelect" class="sim-select" aria-label="Choose beta decay example">
+              <option value="k42">Potassium-42 → Calcium-42 (Slides)</option>
+              <option value="c14">Carbon-14 → Nitrogen-14 (WS2 Q2a)</option>
+              <option value="i131">Iodine-131 → Xenon-131 (WS2 Q2f)</option>
+            </select>
+            <button class="action-btn btn-beta" id="btnRunBeta">▶ Trigger Beta Decay</button>
+            <button class="ghost-btn" id="btnResetBeta">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 10: GAMMA DECAY + SIMULATION ==================== -->
+    <section class="slide" data-title="Gamma Decay Simulation">
+      <div class="slide-header compact">
+        <span class="section-tag tag-gamma">Type 3 • Gamma (γ) Decay</span>
+        <h2>Gamma Decay: Releasing Pure Energy</h2>
+      </div>
+      <div class="decay-slide-grid">
+        <div class="decay-info">
+          <div class="rule-cards">
+            <div class="rule-pill gamma-pill">
+              <span class="rule-k">Emitted</span>
+              <span class="rule-v">High-energy electromagnetic <strong>wave (γ)</strong> — no particle!</span>
+            </div>
+            <div class="rule-pill gamma-pill">
+              <span class="rule-k">Mass Number (A)</span>
+              <span class="rule-v">Stays <strong>unchanged</strong></span>
+            </div>
+            <div class="rule-pill gamma-pill">
+              <span class="rule-k">Atomic Number (Z)</span>
+              <span class="rule-v">Stays <strong>unchanged</strong> → <strong>Same Element!</strong></span>
+            </div>
+          </div>
+
+          <div class="equation-box">
+            <div class="eq-label">Nuclear Equation</div>
+            <div class="eq-main" id="gammaEqDisplay">
+              <span class="nuc-display med"><span class="nuc-stack"><span class="text-mass">125</span><span class="text-p">53</span></span><span class="nuc-sym">I</span></span>
+              <span class="eq-arrow">→</span>
+              <span class="nuc-display med"><span class="nuc-stack"><span class="text-mass">125</span><span class="text-p">53</span></span><span class="nuc-sym">I</span></span>
+              <span class="eq-plus">+</span>
+              <span class="nuc-display med text-gamma"><span class="nuc-sym">γ</span></span>
+            </div>
+            <div class="eq-check" id="gammaEqCheck">
+              <span>Top: <strong>125 = 125</strong> ✓</span>
+              <span>Bottom: <strong>53 = 53</strong> ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="decay-sim-card">
+          <canvas id="gammaCanvas" width="520" height="310"></canvas>
+          <div class="sim-controls-bar">
+            <select id="gammaSelect" class="sim-select" aria-label="Choose gamma decay example">
+              <option value="i125">Iodine-125 → Iodine-125 + γ (Slides)</option>
+              <option value="cs137">Caesium-137 → Caesium-137 + γ (WS2 Q3c)</option>
+              <option value="tc99">Technetium-99 → Technetium-99 + γ (WS2 Q2c)</option>
+            </select>
+            <button class="action-btn btn-gamma" id="btnRunGamma">▶ Emit Gamma Wave</button>
+            <button class="ghost-btn" id="btnResetGamma">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 11: INTERACTIVE SIM 3 — PENETRATION & COMPARISON ==================== -->
+    <section class="slide" data-title="Simulation 3: Penetration & Comparison">
+      <div class="slide-header compact">
+        <span class="section-tag sim-tag">Interactive Simulation 3</span>
+        <h2>Comparing α, β, and γ Radiation</h2>
+      </div>
+      <div class="penetration-layout">
+        <div class="pen-sim-box">
+          <canvas id="penetrationCanvas" width="760" height="250"></canvas>
+          <div class="pen-controls">
+            <button class="action-btn btn-alpha" data-fire="alpha">Fire Alpha (α)</button>
+            <button class="action-btn btn-beta" data-fire="beta">Fire Beta (β)</button>
+            <button class="action-btn btn-gamma" data-fire="gamma">Fire Gamma (γ)</button>
+            <button class="action-btn btn-all" data-fire="all">Fire All Three</button>
+            <span class="pen-status" id="penStatus">Click a source to test what stops each type of radiation!</span>
+          </div>
+        </div>
+
+        <table class="clean-table compare-table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>What is emitted?</th>
+              <th>Notation</th>
+              <th>Mass (A)</th>
+              <th>Atomic (Z)</th>
+              <th>New Element?</th>
+              <th>Stopped By</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong class="text-alpha">Alpha (α)</strong></td>
+              <td>2 protons + 2 neutrons</td>
+              <td><span class="nuc-inline"><span class="nuc-stack"><span>4</span><span>2</span></span>He</span></td>
+              <td>− 4</td>
+              <td>− 2</td>
+              <td><strong>Yes</strong></td>
+              <td>Paper / Skin</td>
+            </tr>
+            <tr>
+              <td><strong class="text-beta">Beta (β)</strong></td>
+              <td>Fast-moving electron</td>
+              <td><span class="nuc-inline"><span class="nuc-stack"><span>0</span><span>−1</span></span>e</span></td>
+              <td>No change</td>
+              <td>+ 1</td>
+              <td><strong>Yes</strong></td>
+              <td>Aluminium sheet</td>
+            </tr>
+            <tr>
+              <td><strong class="text-gamma">Gamma (γ)</strong></td>
+              <td>High-energy wave</td>
+              <td><strong>γ</strong></td>
+              <td>No change</td>
+              <td>No change</td>
+              <td><strong>No</strong></td>
+              <td>Thick Lead / Concrete</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 12: INTERACTIVE SIM 4 — EQUATION BALANCER LAB ==================== -->
+    <section class="slide" data-title="Simulation 4: Nuclear Equation Balancer">
+      <div class="slide-header compact">
+        <span class="section-tag sim-tag">Interactive Simulation 4</span>
+        <h2>Nuclear Equation Balancing Lab</h2>
+      </div>
+      <div class="balancer-layout">
+        <div class="balancer-top-bar">
+          <div class="balancer-control-group">
+            <label for="balProblemSelect">Choose a Reaction:</label>
+            <select id="balProblemSelect" class="sim-select wide">
+              <option value="am241">WS2 Q3a — Americium-241 (Alpha Decay)</option>
+              <option value="sr90">WS2 Q3b — Strontium-90 (Beta Decay — Reverse!)</option>
+              <option value="cs137">WS2 Q3c — Caesium-137 (Gamma Decay)</option>
+              <option value="bi209">WS2 Q3d — Bismuth-209 (Alpha Decay — Mixed!)</option>
+              <option value="po210">WS2 Q3e — Polonium-210 (Alpha Decay — Find Element!)</option>
+              <option value="k40">WS2 Q3f — Potassium-40 (Beta Decay — Mixed!)</option>
+            </select>
+          </div>
+          <div class="balancer-actions">
+            <button class="ghost-btn" id="btnBalToggleMode">Quiz Mode: ON</button>
+            <button class="action-btn btn-beta" id="btnBalReveal">Reveal Answer</button>
+          </div>
+        </div>
+
+        <div class="balancer-stage" id="balancerStage">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <div class="balancer-math-bar">
+          <div class="math-check-card">
+            <span class="mc-label">Top Row (Mass Number A)</span>
+            <div class="mc-eq" id="balTopMath">—</div>
+          </div>
+          <div class="math-check-card">
+            <span class="mc-label">Bottom Row (Atomic Number Z)</span>
+            <div class="mc-eq" id="balBotMath">—</div>
+          </div>
+          <div class="math-check-card hint-card">
+            <span class="mc-label">How to Solve</span>
+            <div class="mc-hint" id="balHint">—</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 13: WORKSHEET 2 WALKTHROUGH ==================== -->
+    <section class="slide" data-title="Worksheet 2 Guide: Radioactive Decay">
+      <div class="slide-header compact">
+        <span class="section-tag ws-tag">Worksheet 2 • How to Approach</span>
+        <h2>Radioactive Decay Worksheet — Strategy Guide</h2>
+      </div>
+      <div class="ws-three-col">
+        <!-- Q1 -->
+        <div class="ws-card">
+          <div class="ws-card-head">
+            <span class="ws-qnum">Q1</span>
+            <h3>Fill in the Blanks</h3>
+          </div>
+          <p class="strategy-text"><strong>Strategy:</strong> Cross off each word in the word bank as you use it! Match key clues:</p>
+          <ul class="clue-list">
+            <li><em>Alpha:</em> 2 <strong>protons</strong> + 2 <strong>neutrons</strong> → Z drops by <strong>2</strong>, mass <strong>decreases</strong> by 4.</li>
+            <li><em>Beta:</em> Z <strong>increases</strong> by 1, <strong>mass number</strong> unchanged.</li>
+            <li><em>Gamma:</em> no <strong>particle</strong>, just a high-energy <strong>wave</strong>.</li>
+          </ul>
+          <button class="reveal-btn" data-reveal="ws2q1">Check Full Order</button>
+          <div class="reveal-content" id="ws2q1">
+            <p class="compact-ans">1. unstable • 2. element • 3. protons • 4. neutrons • 5. 2 • 6. decreases • 7. increases • 8. mass number • 9. particle • 10. wave</p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="ws-card">
+          <div class="ws-card-head">
+            <span class="ws-qnum">Q2</span>
+            <h3>Spot Alpha, Beta, or Gamma</h3>
+          </div>
+          <p class="strategy-text"><strong>3-Second Shortcut:</strong> Look straight at the emitted symbol on the far right!</p>
+          <div class="shortcut-pills">
+            <div class="sc-pill sc-a">See <strong>⁴₂He</strong> → Alpha</div>
+            <div class="sc-pill sc-b">See <strong>⁰₋₁e</strong> → Beta</div>
+            <div class="sc-pill sc-g">See <strong>γ</strong> → Gamma</div>
+          </div>
+          <div class="worked-box">
+            <div class="worked-title">Example: 2a) ¹⁴₆C → ¹⁴₇N + ⁰₋₁e</div>
+            <button class="reveal-btn" data-reveal="ws2q2">Reveal Why</button>
+            <div class="reveal-content" id="ws2q2">
+              <p>Emits <strong>⁰₋₁e</strong>, atomic number goes up 6 → 7, mass stays 14 ⇒ <strong>Beta decay</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="ws-card">
+          <div class="ws-card-head">
+            <span class="ws-qnum">Q3</span>
+            <h3>Missing Numbers (The Arrow = "=")</h3>
+          </div>
+          <p class="strategy-text"><strong>Golden Rule:</strong> Treat the arrow (<code>→</code>) like an <strong>equals sign (=)</strong>. Both top and bottom rows must add up equally!</p>
+          <div class="worked-box">
+            <div class="worked-title">Tricky One! Q3b: __Sr → ⁹⁰₃₉Y + ⁰₋₁e</div>
+            <p class="hint-line">Careful with the negative sign on <code>−1</code>!</p>
+            <button class="reveal-btn" data-reveal="ws2q3b">Reveal Steps</button>
+            <div class="reveal-content" id="ws2q3b">
+              <ul>
+                <li>Top: 90 + 0 = <strong>90</strong></li>
+                <li>Bottom: 39 + (−1) = <strong>38</strong> → <strong>⁹⁰₃₈Sr</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="worked-box">
+            <div class="worked-title">Tricky One! Q3e: Missing Element (Z = 82)</div>
+            <button class="reveal-btn" data-reveal="ws2q3e">Reveal Steps</button>
+            <div class="reveal-content" id="ws2q3e">
+              <ul>
+                <li>Left Z: 82 + 2 = <strong>84</strong> (Po, Polonium*)</li>
+                <li>Right A: 210 − 4 = <strong>206</strong>; Z = 82 → <strong>Pb (Lead)</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 14: USES OF RADIATION ==================== -->
+    <section class="slide" data-title="Real-World Uses of Radioisotopes">
+      <div class="slide-header">
+        <span class="section-tag">Real-World Applications</span>
+        <h2>How We Use Radioisotopes Every Day</h2>
+      </div>
+      <div class="uses-grid">
+        <div class="use-card use-gamma">
+          <div class="use-icon">🏥</div>
+          <div class="use-tag">Cobalt-60 • Gamma (γ)</div>
+          <h3>Cancer Radiotherapy</h3>
+          <p>Focused beams of high-energy gamma rays penetrate tissue to target and destroy rapidly dividing cancer cells.</p>
+        </div>
+
+        <div class="use-card use-beta">
+          <div class="use-icon">🔧</div>
+          <div class="use-tag">Sodium-24 • Beta &amp; Gamma</div>
+          <h3>Detecting Pipe Leaks</h3>
+          <p>Added to fluid in underground pipes. Where radiation spikes at the surface, engineers pinpoint the leak without digging up the whole street.</p>
+        </div>
+
+        <div class="use-card use-beta">
+          <div class="use-icon">🏺</div>
+          <div class="use-tag">Carbon-14 • Beta (β)</div>
+          <h3>Dating Historical Artefacts</h3>
+          <p>Living organisms absorb Carbon-14. After death it decays steadily into Nitrogen-14 — measuring what's left tells us an artefact's age.</p>
+        </div>
+
+        <div class="use-card use-alpha">
+          <div class="use-icon">🚨</div>
+          <div class="use-tag">Americium-241 • Alpha (α)</div>
+          <h3>Home Smoke Alarms</h3>
+          <p>Alpha particles ionise air to create a tiny electric current. Smoke absorbs the alpha particles, breaking the current and sounding the alarm!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 15: INTERACTIVE CLASS CHECK ==================== -->
+    <section class="slide" data-title="Quick Class Check Quiz">
+      <div class="slide-header compact">
+        <span class="section-tag sim-tag">Check for Understanding</span>
+        <h2>Quick Class Quiz — Test Your Skills!</h2>
+      </div>
+      <div class="quiz-container" id="quizContainer">
+        <!-- Populated interactively by app.js -->
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 16: TEACHER REFERENCE & COMPLETE ANSWER KEY ==================== -->
+    <section class="slide" data-title="Teacher Hub: Complete Worksheet Answer Key">
+      <div class="slide-header compact">
+        <span class="section-tag ws-tag">Teacher Reference</span>
+        <h2>Complete Worksheet Answer Key</h2>
+      </div>
+
+      <div class="key-gate" id="keyGate">
+        <div class="key-gate-box">
+          <div class="gate-icon">🔒</div>
+          <h3>Answers Hidden for Classroom Mode</h3>
+          <p>Click below when you're ready to review the complete solutions to Worksheet 1 &amp; Worksheet 2 with the class.</p>
+          <button class="action-btn btn-beta" id="btnUnlockKey">Reveal Complete Answer Key</button>
+        </div>
+      </div>
+
+      <div class="key-dashboard hidden" id="keyDashboard">
+        <div class="key-tabs">
+          <button class="tab-btn active" data-tab="tabWs1">Worksheet 1: Isotopes</button>
+          <button class="tab-btn" data-tab="tabWs2">Worksheet 2: Radioactive Decay</button>
+          <button class="tab-btn" data-tab="tabNotes">Teacher Heads-Up Notes</button>
+          <button class="ghost-btn right-align" id="btnLockKey">🔒 Hide Key</button>
+        </div>
+
+        <div class="tab-panel active" id="tabWs1">
+          <div class="key-split">
+            <div>
+              <h4>Q1. Subatomic Particle Tables (p, n, e)</h4>
+              <table class="mini-key-table">
+                <thead><tr><th>Box</th><th>Left Isotope</th><th>Right Isotope</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td><strong>Cr-58:</strong> 24p, 34n, 24e</td><td><strong>Cr-63:</strong> 24p, 39n, 24e</td></tr>
+                  <tr><td>2</td><td><strong>C-12:</strong> 6p, 6n, 6e</td><td><strong>C-14:</strong> 6p, 8n, 6e</td></tr>
+                  <tr><td>3</td><td><strong>N-14:</strong> 7p, 7n, 7e</td><td><strong>N-15:</strong> 7p, 8n, 7e</td></tr>
+                  <tr><td>4</td><td><strong>S-23:</strong> 16p, 7n, 16e</td><td><strong>S-25:</strong> 16p, 9n, 16e</td></tr>
+                  <tr><td>5</td><td><strong>Mn-52:</strong> 25p, 27n, 25e</td><td><strong>Mn-50:</strong> 25p, 25n, 25e</td></tr>
+                  <tr><td>6 &amp; 7*</td><td><strong>Pd-104:</strong> 46p, 58n, 46e</td><td><strong>Pd-107:</strong> 46p, 61n, 46e</td></tr>
+                  <tr><td>8</td><td><strong>Cs-138:</strong> 55p, 83n, 55e</td><td><strong>Cs-136:</strong> 55p, 81n, 55e</td></tr>
+                  <tr><td>9</td><td><strong>U-235:</strong> 92p, 143n, 92e</td><td><strong>U-238:</strong> 92p, 146n, 92e</td></tr>
+                  <tr><td>10</td><td><strong>I-127:</strong> 53p, 74n, 53e</td><td><strong>I-131:</strong> 53p, 78n, 53e</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <h4>Q2. Shorthand Notation</h4>
+              <ul class="key-list">
+                <li>Potassium-40 → A = 40, Z = 19 → <strong>⁴⁰₁₉K</strong></li>
+                <li>Fluorine-18 → A = 18, Z = 9 → <strong>¹⁸₉F</strong></li>
+                <li>Sodium-23 → A = 23, Z = 11 → <strong>²³₁₁Na</strong></li>
+                <li>Boron-11 → A = 11, Z = 5 → <strong>¹¹₅B</strong></li>
+              </ul>
+              <h4>Q3. Particle Diagrams</h4>
+              <ul class="key-list">
+                <li><strong>3a)</strong> Atomic number of A = <strong>4</strong></li>
+                <li><strong>3b)</strong> Mass number of C = 5 + 5 = <strong>10</strong></li>
+                <li><strong>3c)</strong> <strong>C and D are ions</strong> — protons ≠ electrons (C: 5p vs 2e, +3 charge; D: 3p vs 2e, +1 charge).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tabWs2">
+          <div class="key-split">
+            <div>
+              <h4>Q1. Fill in the Blanks</h4>
+              <ol class="key-list">
+                <li><strong>unstable</strong>, <strong>element</strong></li>
+                <li><strong>protons</strong>, <strong>neutrons</strong>, <strong>2</strong>, <strong>decreases</strong></li>
+                <li><strong>increases</strong>, <strong>mass number</strong></li>
+                <li><strong>particle</strong>, <strong>wave</strong></li>
+              </ol>
+              <h4>Q2. Identify Decay Type</h4>
+              <div class="key-grid-2">
+                <div><strong>a)</strong> Beta</div>
+                <div><strong>b)</strong> Gamma</div>
+                <div><strong>c)</strong> Gamma</div>
+                <div><strong>d)</strong> Alpha</div>
+                <div><strong>e)</strong> Alpha</div>
+                <div><strong>f)</strong> Beta</div>
+              </div>
+            </div>
+            <div>
+              <h4>Q3. Complete Missing Information</h4>
+              <ul class="key-list eq-key-list">
+                <li><strong>a)</strong> ²⁴¹₉₅Am → <strong>²³⁷₉₃</strong>Np + ⁴₂He</li>
+                <li><strong>b)</strong> <strong>⁹⁰₃₈</strong>Sr → ⁹⁰₃₉Y + ⁰₋₁e</li>
+                <li><strong>c)</strong> ¹³⁷₅₅Cs → <strong>¹³⁷₅₅</strong>Cs + γ</li>
+                <li><strong>d)</strong> <strong>²⁰⁹</strong>₈₃Bi → ²⁰⁵<strong>₈₁</strong>Tl + ⁴₂He</li>
+                <li><strong>e)</strong> ²¹⁰<strong>₈₄</strong>Po* → <strong>²⁰⁶</strong>₈₂<strong>Pb</strong> + ⁴₂He</li>
+                <li><strong>f)</strong> <strong>⁴⁰</strong>₁₉K → ⁴⁰<strong>₂₀</strong>Ca + ⁰₋₁e</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tabNotes">
+          <div class="notes-grid">
+            <div class="note-card">
+              <h4>⚠ Worksheet Typos to Flag for Students</h4>
+              <ul>
+                <li><strong>Worksheet 1 (Q1):</strong> Boxes 6 and 7 are identical duplicates (both Palladium: p=46, n=58 &amp; n=61). You can let students skip the duplicate or swap it for another element!</li>
+                <li><strong>Worksheet 2 (Q1, Beta decay):</strong> Reads <em>"by the ____ ____ remains unchanged"</em> — typo for <em>"<strong>but</strong> the mass number remains unchanged."</em></li>
+                <li><strong>Worksheet 2 (Q3e):</strong> Prints symbol <code>Pn</code> instead of <code>Po</code> (Polonium, Z = 84). Mention this before students search the periodic table for "Pn"!</li>
+              </ul>
+            </div>
+            <div class="note-card">
+              <h4>💡 Teaching &amp; Pacing Tips</h4>
+              <ul>
+                <li><strong>Slide 4 (Atom Builder):</strong> Use the <code>WS1 Q3-A/B/C/D</code> presets live before handing out Worksheet 1 so students see visually why C and D are ions.</li>
+                <li><strong>Slide 12 (Equation Balancer):</strong> Leave Quiz Mode ON and walk through Q3b and Q3e as a class — the negative sign in Beta decay (<code>39 + (−1) = 38</code>) is the #1 common mistake.</li>
+                <li><strong>Helium "atom" vs "nucleus":</strong> Clarify that an alpha particle is strictly a helium <em>nucleus</em> (no electrons), even though the worksheet says "same as a helium atom".</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-nav">
+    <button class="nav-arrow" id="btnPrev" aria-label="Previous slide">← Prev</button>
+    <div class="slide-dots" id="slideDots" aria-label="Slide navigation dots"></div>
+    <button class="nav-arrow primary-arrow" id="btnNext" aria-label="Next slide">Next →</button>
+  </footer>
+
+  <!-- Slide Overview Modal -->
+  <div class="modal-backdrop hidden" id="overviewModal" role="dialog" aria-label="Slide overview">
+    <div class="modal-panel overview-panel">
+      <div class="modal-head">
+        <h3>Jump to Slide</h3>
+        <button class="close-modal" data-close="overviewModal">✕</button>
+      </div>
+      <div class="overview-grid" id="overviewGrid"></div>
+    </div>
+  </div>
+
+  <!-- Mini Periodic Table Modal (All Worksheet Elements!) -->
+  <div class="modal-backdrop hidden" id="periodicModal" role="dialog" aria-label="Periodic Table Quick Reference">
+    <div class="modal-panel periodic-panel">
+      <div class="modal-head">
+        <h3>⚛ Quick Periodic Table Reference (All Lesson &amp; Worksheet Elements)</h3>
+        <button class="close-modal" data-close="periodicModal">✕</button>
+      </div>
+      <p class="modal-sub">Atomic Number (Z) = Number of Protons. Click any element card to highlight it for the class.</p>
+      <div class="ptable-grid" id="ptableGrid"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
